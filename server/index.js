@@ -29,6 +29,11 @@ app.get("/", (req, res) => {
     res.status(200).json({msg: "Hello World"});
 });
 
+// REGISTER AND LOGIN ROUTES
+app.use("/auth", require("./routes/jwtAuth"));
+
+app.use("/dashboard", require("./routes/dashboard"));
+
 // Start Server
 app.listen(server_port, () => {
     console.log(`Server is running on port http://localhost:${server_port}/`);
